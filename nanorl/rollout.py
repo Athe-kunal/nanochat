@@ -241,7 +241,6 @@ def collect_weight_metadata(model, fsdp: bool = False) -> dict[str, Any]:
     }
 
 def remote_vllm_start_update_weights(base_url, metadata: dict[str, Any], packed: bool):
-    logger.info(f"Starting in-place vLLM weight update with {packed=}, {len(metadata['names'])=}")
     payload = {
         "names": metadata["names"],
         "dtype_names": metadata["dtype_names"],
